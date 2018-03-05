@@ -8,7 +8,7 @@ def home():
     return render_template("index.html", posts = post_store.get_all())
 
 
-@app.route("/topic/add", methods = ["GET", "POST"])
+@app.route("/topic_add", methods = ["GET", "POST"])
 def topic_add():
     if request.method == "POST":
         new_post = models.Post(request.form["title"], request.form["content"])
