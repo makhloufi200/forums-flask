@@ -5,19 +5,19 @@
     padding: 20px;
 }
 
-table td {
-    min-width: 100px;
-}
-
-    table td:first-child {
-        min-width: 400px;
-    }
-
-thead {
-    text-align: left;
-}
-
-.centered-item {
-    text-align: center;
-    margin: 10px auto;
-}
+table {
+        border-collapse: collapse;
+        width: 100%;
+        }
+    th, td {
+        text-align: left;
+        padding: 8px;
+        width: 100%;
+        }
+    tr:nth-child(even){background-color: #f2f2f2}
+    th {
+        background-color: #4CAF50;
+        color: white;
+       }
+    button{
+        margin-left: 590px;}

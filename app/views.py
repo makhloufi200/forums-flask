@@ -28,8 +28,10 @@ def topic_edit(id):
     posts = post_store.get_all()
     found_post = [post for post in  posts if post.id == id][0]
     if request.method == "POST":
-        update_post = models.Post(request.form["title"], request.form["content"])
-        post_store.update(update_post)
+        updated_post = post_store.get_by_id(id)
+        updated_post.title = request.form["title"]
+        updated_post.content = request.form["content"]
+        post_store.update(updated_post)
         return redirect(url_for("home"))
 
     else:
