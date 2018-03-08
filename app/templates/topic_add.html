@@ -8,14 +8,16 @@
 </head>
 
 <body>
-    
-<div class="input-form">
+<div class="centered-item">
+        <h2>Add New Topic</h2>
+    </div>
+<div class="content">
     <form action="{{ url_for('topic_add') }}" method="POST">
-    
-        <label title="Title:"><input type="text" name="title" /></label>
-        <input type="text" name="content"/>
-    
-        <input type="submit" value="Create"/>
+
+        <p><input type="text" name="title" placeholder="Title"/></p>
+        <p><textarea  name="content" placeholder="Content" height="80"></textarea></p>
+
+        <input class="cta" type="submit" value="Create Post"/>
     </form>
 </div>
 
