@@ -88,6 +88,7 @@ class MemberStore(BaseStore):
         yield members_with_posts[0]
         yield members_with_posts[1]
 
+
 class PostStore(BaseStore):
 
     posts = []
