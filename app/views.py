@@ -18,7 +18,7 @@ def topic_add():
     else:
         return render_template("topic_add.html")
 
-@app.route("/topic_delete/<int:id>")
+@app.route("/topic_delete/<int:id>", methods = ["DELETE"])
 def topic_delete(id):
     post_store.delete(id)
     return redirect(url_for("home"))

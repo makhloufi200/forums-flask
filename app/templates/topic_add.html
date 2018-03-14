@@ -8,9 +8,9 @@
 </head>
 
 <body>
-<div class="centered-item">
-        <h2>Add New Topic</h2>
-    </div>
+<div class="centered-item" align="center">
+      <h2>Add New Topic</h2>
+</div>
 <div class="content">
     <form action="{{ url_for('topic_add') }}" method="POST">
 
@@ -22,5 +22,35 @@
 </div>
 
 </body>
+<script
+   src="https://code.jquery.com/jquery-3.3.1.min.js"
+   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+   crossorigin="anonymous"></script>
+<script>
+    $(function ()
+    {
+        $("form").submit(function (event)
+        {
 
+            var topicTitle = $("input[name='title']").val();
+            var topicContent = $("textarea[name='content']").val();
+            var topicData = {
+                    "title": topicTitle,
+                    "content": topicContent
+                    };
+            $.ajax({
+                type: "POST",
+                url: "/api/topic/add",
+                data: JSON.stringify(topicData),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response)
+                {
+                    alert("Added topic successfully !");
+                }
+            });
+        });
+    });
+</script>
 </html>
+

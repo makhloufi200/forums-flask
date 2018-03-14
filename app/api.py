@@ -20,15 +20,14 @@ def topic_add_api():
 
     return result
 
-@app.route("/api/topic/delete/<int:id>", methods = ["DELETE"])
+@app.route("/api/topic/delete/<int:id>", methods=["DELETE"])
 def topic_delete_api(id):
     try:
-        result = post_store.delete(id)
-        result = jsonify(result.__dict__)
+        post = post_store.get_by_id(id)
+        post_store.delete(id)
     except ValueError:
-        result = abort(404, "topic with id: {id} doesn't exist")
-
-    return result
+        abort(400,"this id not found")
+    return jsonify(post.__dict__)
 
 
 @app.route("/api/topic/show/<int:id>")

@@ -53,7 +53,7 @@
                     </td>
 
                     <td>
-                        <a href="{{ url_for('topic_delete', id=post.id) }}">delete</a>
+                        <a id="{{post.id}}" href="#">delete</a>
                     </td>
                     <!--<td>-->
                         <!--<button class="btn btn-default"><a href="{{ url_for('topic_show', id=post.id) }}">Show Topic</a></button>-->
@@ -67,6 +67,27 @@
         <h4>Done by: Makhloufi Smail</h4>
     </footer>
 </body>
+<script
+   src="https://code.jquery.com/jquery-3.3.1.min.js"
+   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+   crossorigin="anonymous"></script>
 
+<script>
+   $(function ()
+    {
+        $("a").click(function(event){
+            var id = event.target.id;
+            $.ajax({
+                type: "DELETE",
+                url: "/api/topic/delete/"+id,
+                success: function (response)
+                {
+                    alert("Delete topic successfully !");
+                    location.reload();
+                }
+            });
+        });
+    });
+</script>
 </html>
 
