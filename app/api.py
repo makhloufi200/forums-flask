@@ -11,14 +11,9 @@ def topic_get_all():
 @app.route("/api/topic/add", methods = ["POST"])
 def topic_add_api():
     request_data = request.get_json()
-    try:
-        new_post = models.Post(request_data["title"], request_data["content"])
-        post_store.add(new_post)
-        result = jsonify(new_post.__dict__)
-    except KeyError:
-        result = abort(400, "Couldn't parse the request data !")
-
-    return result
+    new_post = models.Post(request_data["title"], request_data["content"])
+    post_store.add(new_post)
+    return jsonify(new_post.__dict__)
 
 @app.route("/api/topic/delete/<int:id>", methods=["DELETE"])
 def topic_delete_api(id):
