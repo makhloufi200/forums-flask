@@ -11,7 +11,7 @@ def topic_get_all():
 @app.route("/api/topic/add", methods = ["POST"])
 def topic_add_api():
     request_data = request.get_json()
-    new_post = models.Post(request_data["title"], request_data["content"])
+    new_post = models.Post(title= request_data["title"], content= request_data["content"])
     post_store.add(new_post)
     return jsonify(new_post.__dict__)
 
