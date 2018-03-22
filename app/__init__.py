@@ -4,7 +4,7 @@ import os, psycopg2
 
 app = Flask(__name__)
 
-#folder_path = os.path.abspath(os.path.dirname(__file__))
+folder_path = os.path.abspath(os.path.dirname(__file__))
 #app.config["SQLALCHEMY_DATABASE_URI"] = """sqlite:///{0}""".format(os.path.join(folder_path, "my_database.db"))
 app.config["SQLALCHEMY_DATABASE_URI"] = os.environ['DATABASE_URL']
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = True
